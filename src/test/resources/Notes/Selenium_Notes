@@ -17,3 +17,6 @@ What are the Benefits of TestNG?
 	Parallel testing is possible
 	Generates Logs
 	Data Parameterization is possible
+	
+Parameterization using Data provider
+com.uttara.selenium

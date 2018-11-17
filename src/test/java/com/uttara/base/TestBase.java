@@ -17,6 +17,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import com.uttara.utilities.ExcelReader;
+
 public class TestBase {
 	/*
 	 * WebDriver
@@ -34,6 +36,7 @@ public class TestBase {
 	public static FileInputStream fis;
 	
 	public static Logger log = Logger.getLogger("devpinoyLogger");
+	public static ExcelReader excel = new ExcelReader(System.getProperty("user.dir") + "\\src\\test\\resources\\excel\\testdata.xlsx");
 
 	@BeforeMethod
 	@BeforeSuite

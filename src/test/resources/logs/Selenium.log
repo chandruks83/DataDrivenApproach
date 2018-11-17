@@ -1,3 +1,7 @@
-22:39:24,946 DEBUG devpinoyLogger:46 - Load config file
-22:39:24,964 DEBUG devpinoyLogger:51 - Load OR page
-22:39:24,965 DEBUG devpinoyLogger:58 - Navigate to firfox browser
+16:27:45,552 DEBUG devpinoyLogger:51 - Load config file
+16:27:45,554 DEBUG devpinoyLogger:56 - Load OR page
+16:27:45,554 DEBUG devpinoyLogger:63 - Navigate to firfox browser
+16:27:51,238 DEBUG devpinoyLogger:78 - Load url
+16:27:58,732 DEBUG devpinoyLogger:13 - Inside manager login page
+16:27:58,872 DEBUG devpinoyLogger:98 - Close browser
+16:28:01,625 DEBUG devpinoyLogger:98 - Close browser
