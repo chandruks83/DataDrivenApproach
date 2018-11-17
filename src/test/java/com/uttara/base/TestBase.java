@@ -14,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
@@ -21,29 +22,26 @@ import com.uttara.utilities.ExcelReader;
 
 public class TestBase {
 	/*
-	 * WebDriver
-	 * Properties
-	 * Logs Log4j jar, .log, Logger, log4j.properties
-	 * ExtentReports
-	 * DB
-	 * Excel
-	 * Mail
+	 * WebDriver Properties Logs Log4j jar, .log, Logger, log4j.properties
+	 * ExtentReports DB Excel Mail
 	 */
 
 	public static WebDriver driver;
 	public static Properties config = new Properties();
 	public static Properties OR = new Properties();
 	public static FileInputStream fis;
-	
+
 	public static Logger log = Logger.getLogger("devpinoyLogger");
-	public static ExcelReader excel = new ExcelReader(System.getProperty("user.dir") + "\\src\\test\\resources\\excel\\testdata.xlsx");
+	public static ExcelReader excel = new ExcelReader(
+			System.getProperty("user.dir") + "\\src\\test\\resources\\excel\\testdata.xlsx");
+	public static WebDriverWait wait;
 
 	@BeforeMethod
 	@BeforeSuite
 	public void setUp() {
 		if (driver == null) {
 			String userDir = System.getProperty("user.dir");
-			String browser="";
+			String browser = "";
 			String url = "";
 			String implicitWait = "";
 			try {
@@ -58,36 +56,39 @@ public class TestBase {
 				implicitWait = config.getProperty("implicitwait");
 			} catch (IOException e) {
 				e.printStackTrace();
-			} 
+			}
 			if (browser.equalsIgnoreCase("firefox")) {
 				log.debug("Navigate to firfox browser");
-				System.setProperty("webdriver.gecko.driver", userDir + "//src//test//resources//executables//geckodriver.exe");
+				System.setProperty("webdriver.gecko.driver",
+						userDir + "//src//test//resources//executables//geckodriver.exe");
 				driver = new FirefoxDriver();
 			}
 			if (browser.equalsIgnoreCase("ie")) {
 				log.debug("Navigate to ie browser");
-				System.setProperty("webdriver.gecko.driver", userDir + "//src//test//resources//executables//MicrosoftWebDriver.exe");
+				System.setProperty("webdriver.gecko.driver",
+						userDir + "//src//test//resources//executables//MicrosoftWebDriver.exe");
 				driver = new InternetExplorerDriver();
 			}
 			if (browser.equalsIgnoreCase("chrome")) {
 				log.debug("Navigate to chrome browser");
-				System.setProperty("webdriver.chrome.driver", userDir + "//src//test//resources//executables//chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver",
+						userDir + "//src//test//resources//executables//chromedriver.exe");
 				driver = new ChromeDriver();
 			}
-			
+
 			log.debug("Load url");
 			driver.get(url);
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Integer.parseInt(implicitWait), TimeUnit.SECONDS);
+			wait = new WebDriverWait(driver, 5);
 		}
 	}
-	
+
 	public boolean isElementExists(By by) {
 		try {
 			driver.findElement(by);
 			return true;
-		}
-		catch(NoSuchElementException e){
+		} catch (NoSuchElementException e) {
 			return false;
 		}
 	}

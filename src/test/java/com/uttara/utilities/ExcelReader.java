@@ -55,7 +55,6 @@ public class ExcelReader {
 			int number = sheet.getLastRowNum() + 1;
 			return number;
 		}
-
 	}
 
 	// returns the data from a cell
