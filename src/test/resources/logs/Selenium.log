@@ -1,7 +1,10 @@
-16:27:45,552 DEBUG devpinoyLogger:51 - Load config file
-16:27:45,554 DEBUG devpinoyLogger:56 - Load OR page
-16:27:45,554 DEBUG devpinoyLogger:63 - Navigate to firfox browser
-16:27:51,238 DEBUG devpinoyLogger:78 - Load url
-16:27:58,732 DEBUG devpinoyLogger:13 - Inside manager login page
-16:27:58,872 DEBUG devpinoyLogger:98 - Close browser
-16:28:01,625 DEBUG devpinoyLogger:98 - Close browser
+17:07:34,476 DEBUG devpinoyLogger:51 - Load config file
+17:07:34,485 DEBUG devpinoyLogger:56 - Load OR page
+17:07:34,486 DEBUG devpinoyLogger:63 - Navigate to firfox browser
+17:07:40,263 DEBUG devpinoyLogger:81 - Load url
+17:07:47,323 DEBUG devpinoyLogger:15 - rows = 2
+17:07:47,324 DEBUG devpinoyLogger:16 - cols = 4
+17:07:48,163 DEBUG devpinoyLogger:118 - Close browser
+17:07:51,075 DEBUG devpinoyLogger:13 - Inside manager login page
+17:07:51,090 DEBUG devpinoyLogger:118 - Close browser
+17:07:51,164 DEBUG devpinoyLogger:118 - Close browser

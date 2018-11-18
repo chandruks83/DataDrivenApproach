@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="DataDriven">
-<listeners>
-      <listener class-name="org.uncommons.reportng.HTMLReporter"/>
-      <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
-       <listener class-name="com.uttara.listeners.CustomListeners"/>
-  </listeners>
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener
+			class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="com.uttara.listeners.CustomListeners" />
+	</listeners>
 	<test name="Add customer test">
 		<classes>
 			<class name="com.uttara.testcases.AddCustomerTest" />
 		</classes>
 	</test> <!-- AddCustomerTest -->
-	
-	<!-- test name="Bank Manager Login Test">
+	<test name="Bank Manager Login Test">
 		<classes>
 			<class name="com.uttara.testcases.BankManagerLoginTest" />
 		</classes>
-	</test--> <!-- Login -->
-
+	</test> <!-- Login -->
 </suite> <!-- DataDriven -->

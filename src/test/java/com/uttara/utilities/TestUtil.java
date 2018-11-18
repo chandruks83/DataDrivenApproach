@@ -14,7 +14,7 @@ public class TestUtil extends TestBase{
 		int cols = excel.getColumnCount(sheetName);
 		log.debug("rows = " + rows);
 		log.debug("cols = " + cols);
-		Object[][] data = new Object[rows][cols];
+		Object[][] data = new Object[rows-1][cols];
 		for(int rowNum = 2; rowNum<=rows; rowNum++ ) {
 			for(int colNum = 0; colNum<cols; colNum++ ) {
 				data[rowNum-2][colNum] = excel.getCellData(sheetName, colNum, rowNum);

@@ -11,7 +11,7 @@ public class BankManagerLoginTest extends TestBase{
 	@Test
 	public void loginAsBankManager() {
 		log.debug("Inside manager login page");
-		driver.findElement(By.cssSelector(OR.getProperty("bmlBtn_CSS"))).click();
+		driver.findElement(By.cssSelector(OR.getProperty("bmlBtn"))).click();
 		Assert.assertTrue(isElementExists(By.cssSelector(OR.getProperty("addCustomer_CSS"))), "Login not successful");
 	}
 }
