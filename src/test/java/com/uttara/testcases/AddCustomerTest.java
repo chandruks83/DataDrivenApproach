@@ -14,8 +14,8 @@ import com.uttara.utilities.TestUtil;
 public class AddCustomerTest extends TestBase{
 	
 	@Test(dataProviderClass=TestUtil.class,dataProvider="dp")
-	public void addCustomer(String firstName, String lastName, String postCode, String alertText){
-		driver.findElement(By.cssSelector(OR.getProperty("bmlBtn_CSS"))).click();
+	public void addCustomerTest(String firstName, String lastName, String postCode, String alertText){
+		driver.findElement(By.cssSelector(OR.getProperty("bmlBtn"))).click();
 		driver.findElement(By.cssSelector(OR.getProperty("addCustomer_CSS"))).click();
 		driver.findElement(By.cssSelector(OR.getProperty("firstName_CSS"))).sendKeys(firstName);
 		driver.findElement(By.cssSelector(OR.getProperty("lastName_CSS"))).sendKeys(lastName);
