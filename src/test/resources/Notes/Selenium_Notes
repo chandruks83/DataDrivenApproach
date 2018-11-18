@@ -1,0 +1,36 @@
+TestNG is a testing framework inspired from JUnit and NUnit but introducing some new functionalities that make it more powerful and easier to use, such as:
+
+	Annotations.
+	Run your tests in arbitrarily big thread pools with various policies available (all methods in their own thread, one thread per test class, etc...).
+	Test that your code is multithread safe.
+	Flexible test configuration.
+	Support for data-driven testing (with @DataProvider).
+	Support for parameters.
+	Powerful execution model (no more TestSuite).
+	TestNG is designed to cover all categories of tests:  unit, functional, end-to-end, integration, etc...
+	
+What are the Benefits of TestNG?
+
+	It gives the ability to produce HTML Reports of execution
+	Annotations made testers life easy
+	Test cases can be Grouped & Prioritized more easily
+	Parallel testing is possible
+	Generates Logs
+	Data Parameterization is possible
+	
+Parameterization using Data provider
+	Create a method with @DataProvider annotation that returns the array data
+	Use the above data in a method using @Test(dataProvider="getData") annotation
+	
+Using XSSFWorkbook class for accessing excel files
+	fis = new FileInputStream(path);
+	workbook = new XSSFWorkbook(fis);
+	sheet = workbook.getSheetAt(0);
+	
+Using reportng plugin for test reports
+	Reporter.log("Log message")
+	
+Using Listeners to show failure screenshots
+	Implement ITestListeners
+	Add the class <listener class-name="com.uttara.listeners.CustomListeners"/> to the testng.xml
+	
