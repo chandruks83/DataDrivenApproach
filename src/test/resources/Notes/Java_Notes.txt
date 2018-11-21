@@ -1,3 +1,12 @@
+* JDK contains tools to write java programs and also compile and executed
+	* JDK is required only for developers who write java codes
+* JRE is part of JDK which is used to execute java program
+	* Standalone JRE is required only for the end users who only want to run the programs
+	* It contains JVM + libraries
+* JVM is present in both JRE and JDK
+	* Java programs run in JDK or JRE goes into JVM which is responsible for executing the code line by line
+	* So it is also known as interpreter
+	
 Constructors
 Integer(i) constructs an Integer object equivalent to the integer i
 Integer(s) constructs an Integer object equivalent to the string s
