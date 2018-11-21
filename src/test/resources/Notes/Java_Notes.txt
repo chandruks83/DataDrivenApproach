@@ -1,0 +1,262 @@
+Constructors
+Integer(i) constructs an Integer object equivalent to the integer i
+Integer(s) constructs an Integer object equivalent to the string s
+
+Class Methods
+parseInt(s) returns a signed decimal integer value equivalent to string s
+toString(i) returns a new String object representing the integer i
+
+Instance Methods
+byteValue() returns the value of this Integer as a byte
+doubleValue() returns the value of this Integer as an double
+floatValue() returns the value of this Integer as a float
+intValue() returns the value of this Integer as an int
+longValue() returns the value of this Integer as a long
+shortValue() returns the value of this Integer as a short
+toString() returns a String object representing the value of this Integer
+
+Encapsulation:
+Data hiding to prevent setting of wrong values to instance variables
+Its implemented by marking all instance variables private and using getters and setter methods to access and set them
+
+All the local variables(Method locals) must be initialized before using them.
+
+To check equality of two primitives use "=="
+To check equality of two reference variables(including strings) use "equals()" method
+
+Logical operators :
+	* && and !! operators :
+		If JVM sees that left side of the && expression is false, it stops right there and doesnt care to evaluate the right one
+		Similarly same for !!
+		So they are called as short circuit operators
+	* Whereas & and ! operator evaluates both sides of the expression
+
+Uses of packages
+	* Organising projects
+	* To prevent name collisions of classes
+	* To provide security level within package to have access only in the package scope
+	
+Steps to implement inheritance : 
+1. Look for objects that have common attributes and behaviours
+	* This helps to abstract out behaviours
+	* How are all the objects related, which helps in building inheritance tree relationships
+2. Design a class that represents the common attributes and behaviours
+3. Decide if a subclass needs behaviours specific to that particular subclass type
+4. Look for more opportunities to use abstraction by finding two or more subclasses that might need common behaviours
+
+Constructor chaining
+	* When an object is created by saying "new" to a class type(say class "A") the object's constructor is called
+		* Once the control enters "A" constructor, first step it would is call its superclass's constructor
+		* This process repeats until the "Object's" constructor is reached and executed
+		This is called constructor 
+
+IS-A test : 
+	* To see if inheritance is applied correctly use IS-A test.
+	* E.g., A subclass (canine) IS-A superclass (Animal)
+	* IS-A should apply to any class in the inheritance tree structure(E.g., Cat IS-A Canine, Cat IS-A Animal)
+
+Access levels and access modifiers : 
+	* Java has four access levels and three access modifiers because "default"(when no access modifier is specified) is one of the four access levels
+	* public - Is all accessible to all irrespective of their location
+	  private - Is accessible only within the class
+	  default - Is accessible only within the same package
+	  protected - Is accessible only within the same package and can be inherited from other packages
+
+Classes that cannot be inherited
+	* Non public classes can be subclassed only within the same package, it cannot be inherited outside the package
+	* When a class is marked with "final" modifier then it cannot be inherited.
+	* When a class has only private constructors then it cannot be subclassed
+
+Why classes are marked final ?
+	* If all the methods are intended to work as it is, it shouldnt be overwritten.
+	* If only specific method should be protected from overriding then it can be marked final
+
+Every class is a direct or indirect sublass if the class "Object" (java.lang.Object)
+"Object" class is not an abstract class
+A method can be called on an object only if the class of the reference variable has the method
+Methods can be declared with Object arguments and/or return types
+
+Java doesnt support multiple inheritance.
+	* Inheriting multiple classes results in Deadly Diamond of Death(DDD)
+This problem of DDD is solved by using "interface" 
+	* wherein all the methods inside an "interface" are marked abstract
+	* Meaning all the subclasses has to implement the abstract methods
+	* All the "interface" methods are by default "public" and "abstract", so no need to mark with thoses
+
+An abstract class is one which cannot be instantiated, meaning objects cannot be created out of a abstract class
+	* An abstract class can have both abstract and non abstract methods
+	* If a class has even one abstract method then the class should be marked abstract
+	* An abstract method has no body and has to be implemented in the first subclass in the inheritance tree
+
+When to create a class, subclass, abstract class, interface ?
+	* Make a class that doesnt extend anything when the new class doesnt pass IS-A test for any other type.
+	* Make a subclass only when you want to have a more spicific version of a class and need to override and add new behaviours
+	* Use an abstract class when you want to define a template for a group of subclass and you have atleast some implementation code
+		that all sublasses could use. Make class abstract when you want to guarantee that nobody can make object of that type
+	* Use an "interface" when you want to define a role that other classes can play, regardless of where those classes are in the inheritance tree
+
+Java has two areas of memory we care for, the stack and the heap
+	* Instance variables are declared inside a class but outside a method
+	* Local variables are inside a method or method parameter
+	* All local variables(primitive or reference) live on the stack corresponding to the methods where the variables are declared
+	* All objects live in the heap regardless of whether its reference variable is a local or reference
+	* Instance variables live within the object they belong to, in the heap
+	* A constructor is created when we say "new" on a class type
+
+Static method means "behavior not dependant on an instance variable, so no instance/object is required, just the class name"
+	* Static(Methods and variables) is used when we dont want to create an instance of class
+	* Static methods cannot use instance variables because they dont know to which object the variable belongs to
+	* Similrarly static methods cannot call non static methods, because non static methods might be using instance variables
+	* Static variables are shared, all instances of the same class share a single copy of static variables
+	* Static variables are initialized when a class is loaded
+		* All static variables of a class are initialized before any object of that class are created
+	
+	* Static methods cannot call non-static methods and cannot access non static instance variables
+	* Non static methods can call static methods and can access static variables
+	
+	* Static final variables are constants in java
+	* "Static initializer" is a block of code that runs when a class is loaded before any other code can use the class, so its great place
+		to initialize a static final variable
+	* A static final instance variable must be initialized when it is declared or in a static initializer block
+	* A final instance variable must be initialized when it is declared or in a constructor
+	
+	* A final variable means you cannot change its value
+	* A final method means you cannot override it (but it can be overloaded)
+	* A final class means you cannot extend it
+	* If a class is final then it is not required to mark the methods final
+		* Since an final class cannot be extended so there is not point of overriding its methods
+
+	* A static method should be called using the class name rather than an object reference.(e.g., Math.random())
+	* A static method can be invoked without any instance's of the class on the heap
+	* A static method is good for a utility method that does not depend on any particular instance variable value
+	* A static method is not associated with any particular instance-only the class-so it cannot access any instance variable value of its class.
+		It wouldnt know which instance's value to use
+	* A static method cannot call a non static method, since non static methods are usually associated with instance variable state
+	* If a class has only static methods and if you dont want the class to be instantiated then mark the constructor as private
+	
+Math.random() Returns a double value greater than or equal to 0.0 and less than 1.0
+
+Wrapper Classes 
+* When we need to treat a primitive like an object, wrap it
+
+e.g., 
+int b = 2;
+Integer s = new Integer(b);
+int x = s.intValue();
+		
+Each of Java's eight primitive data types has a class dedicated to it. These are known as wrapper
+classes, because they "wrap" the primitive data type into an object of that class. So, there is an
+Integer class that holds an int variable, there is a Double class that holds a double
+variable, and so on. The wrapper classes are part of the java.lang package, which is imported
+by default into all Java programs.
+
+* Autoboxing feature does the conversion from primitive to wrapper object automatically
+	ArrayList<Integer> aI = new ArrayList<Integer>();
+	aI.add(2); \\ Autmatic conversion from int to Integer
+* Integer.parseInt("2") will convert a string number into an int
+* To convert from a number to a string just concatenate the number with a string (E.g., String str = "" + 5) or Integer.toString(5)
+
+Collections :
+* Collections is an interface and all its class implementations are backed by "equals" method
+* Two objects are said to be identical if their references are same.
+
+								Collections (Interface)	
+-----------------------------------------------------------------------------------------------------------
+|									|										
+|									|	
+|									|
+***List (Interface)***--------------***Set (Interface)***----------------------------***Queue (Interface)***------------					
+** ArrayList						** Hashset										 ** FIFO	
+** LinkedList                       ** Treeset(Implements "SortedSet" interface)	 ** Priority Queue
+	* Position                      ** LinkedHashset    
+	* Allow duplicates              	* Non-position backed 
+	* Indexed							* Unique elements (No duplicates)
+										* Unordered
+										
+
+*************Refer ArrayList screenshot ***********************
+* ArrayList is good for adding and retreival (Takes less time)
+* Bad for searching, inserting/removing
+
+*************Refer LinkedList screenshot***********************
+* LinkedList can be used when elements could be stored in Non-contiguous memory as compared to ArrayList
+* It is very efficient when when inserting or removing elements
+* It is very bad for searching
+
+* Retreiving Key-Value pairs from a Map
+	For(Object o : m.entrySet()){
+		Map.Entry e = (Map.Entry)o;
+		System.out.println("Key " + e.getKey + " Value " + e.getValue);
+	}
+	
+* Serialization and De-serialization of "Objects"
+	* Serialization is required to persist the objects across the program executions
+	* Serialization is realized by using the marker interface called "Serializable" to the class which has to be serialized
+	* Classes that implement the Serializable interface are only eligible to be serialized
+	* If any state of an object should be prevented from "serialization" mark its state as "transient"
+	* Any members marked static are also not serialized
+	
+* Generics
+	* Generics are a type safety feature for any collection
+	* Its used to specify the object type of a collection
+	* In Generics we cannot assign any other type reference to other object reference even if it is of a subtype
+	i.e., List<Animal> al = new ArrayList<Animal>();
+		  List<Hippo> al2 = new ArrayList<Hippo>();
+		  Assume Hippo IS-A Animal
+		  al = al2 (is not allowd, it gives compiler error)
+
+* Inner class
+	* Inner classes are defined inside an outer class
+	* In general classes can have only public and package access, but inner classes can have any access specifiers
+	* Calling an inner class from ouside of outer class
+		OuterClass.InnerClass i = new OuterClass().new InnerClass();
+		
+* Threads
+	* Multithreading in java is executed in programming level and not the OS level
+	* Thread - java.lang.thread is a class
+	* Threads are different program(methods) executions, thread class and thread programs are two seperate things
+	* Threads are used only for parallel executions of tasks
+	* No guarantee WRT order of execution of threads
+	* Every started thread will go for completion(Normally or abnormally)
+	
+	* Threads can be implemented in two ways
+		1. Extend thread
+			public class ObjectExtendsThread extends Thread {
+				public void run() {
+					for (int i = 0; i <= 10; i++)
+					System.out.print("Bingo");
+				}
+			}
+			
+			public class TestObjectExtendsThread {
+
+				public static void main(String[] args) {
+					ObjectExtendsThread obj = new ObjectExtendsThread();
+					obj.start();
+					for (int i = 0; i <= 10; i++)
+						System.out.print("Bongo");
+				}
+			}
+		2. implement runnable
+			public class ObjectImplementsRunnable implements Runnable {
+				public void run() {
+					for (int i = 0; i <= 10; i++)
+						System.out.print("Bingo");
+				}
+			}
+			
+			public class TestObjectImplementsRunnable {
+				public static void main(String[] args) {
+					ObjectImplementsRunnable obj = new ObjectImplementsRunnable();
+					Thread t = new Thread(obj);
+					t.start();
+					for (int i = 0; i <= 10; i++)
+						System.out.print("Bongo");
+				}
+			}
+	
+	** Implementing a runnable is better than extending a Thread object
+		* Extending any other class is not possible if we extend a thread
+		* Extending thread is not as per problem domain(Fails Is-A relation)
+		* There is a clear separation of jo and thread
+	
